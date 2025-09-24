@@ -1,0 +1,30 @@
+{
+    "name": "bright-bits",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./backend/server.js",
+        "dev": "nodemon ./backend/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/khangvu0/bright-bits.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/khangvu0/bright-bits/issues"
+    },
+    "homepage": "https://github.com/khangvu0/bright-bits#readme",
+    "dependencies": {
+        "dotenv": "^17.2.2",
+        "express": "^5.1.0",
+        "express-handlebars": "^8.0.3"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
