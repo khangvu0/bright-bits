@@ -1,0 +1,118 @@
+/*-------------------- Google Font --------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/*-------------------- Color Variables --------------------*/
+:root {
+    --dark-blue-color: #003f88;
+    --light-blue-color: #56aeff;
+    --yellow-color: #fdc500;
+    --light-yellow-color: #ffeb5b;
+    --text-color: #333333;
+    --body-color: #f6f6f6;
+    --card-color: #f5f3ef;
+    --footer-color: #f6f6f6;
+
+    --font-title: 'garamond-premier-pro', 'Poppins', sans-serif;
+    --font-text: 'DS Trade Gothic', 'Poppins', sans-serif;
+}
+
+/*-------------------- Base CSS Rules --------------------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+}
+
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+    max-width: 1800px;
+}
+
+body {
+    position: relative;
+    top: 3rem;
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*-------------------- Header --------------------*/
+
+/*-------------------- Footer --------------------*/
+.footer {
+    bottom: 0;
+    width: 100%;
+    background-color: var(--footer-color);
+    padding: 1.5rem 1.5rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+.sign-up,
+.socials {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.footer p {
+    font-size: 0.75rem;
+}
+
+.app-store,
+.social-media {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.app-store {
+    margin-bottom: 1rem;
+}
+
+.social-media img {
+    width: 30px;
+    height: 30px;
+}
+
+.copyright {
+    color: #707070;
+    font-size: 0.8rem;
+}
+
+.copyright p {
+    text-align: center;
+}
+
+.copyright a {
+    text-decoration: underline;
+    color: #707070;
+}
+
+/*-------------------- Media Queries --------------------*/
+/* For tablet */
+@media screen and (min-width: 768px) {
+    .social-media {
+        margin-top: 2rem;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1800px) {
+    html {
+        margin: 0 auto;
+    }
+}
