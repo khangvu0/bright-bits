@@ -10,7 +10,6 @@
     --text-color: #333333;
     --body-color: #f6f6f6;
     --card-color: #f5f3ef;
-    --footer-color: #f6f6f6;
 
     --font-title: 'garamond-premier-pro', 'Poppins', sans-serif;
     --font-text: 'DS Trade Gothic', 'Poppins', sans-serif;
@@ -49,12 +48,63 @@ a {
 }
 
 /*-------------------- Header --------------------*/
+.header {
+    position: fixed;
+    width: 100vw;
+    max-width: 1800px;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background-color: var(--body-color);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1.5rem;
+    font-weight: 500;
+}
+
+.nav_logo {
+    color: var(--dark-blue-color);
+    font-family: var(--font-title);
+    display: flex;
+    align-items: center;
+}
+
+.nav_logo .logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.nav_logo:hover {
+    color: var(--light-blue-color);
+}
+
+.nav_list {
+    display: flex;
+}
+
+.nav_link {
+    padding-left: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--dark-blue-color);
+    font-family: var(--font-text);
+}
+
+.nav_link:hover {
+    color: var(--light-blue-color);
+}
 
 /*-------------------- Footer --------------------*/
 .footer {
     bottom: 0;
     width: 100%;
-    background-color: var(--footer-color);
+    background-color: var(--body-color);
     padding: 1.5rem 1.5rem;
     border-top: 2px solid #e0e0e0;
 }
