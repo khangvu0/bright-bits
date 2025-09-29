@@ -1,4 +1,35 @@
 <footer class='footer'>
+    <section class='sign-up'>
+        <form onsubmit='validate(event)' class='footer-form' id='form'>
+            <div class='laptop-display'>
+                <div class='footer-form_intro'>
+                    <h3>Sign-Up for New Educational Content</h3>
+                    <p>
+                        Sign up to receive Bright-Bits emails and get notified
+                        on new learning games, resources, events and more!
+                        (Parent's permission required)
+                    </p>
+                </div>
+
+                <div class='footer-form_input-container'>
+                    <div class='footer-form_input'>
+                        <label for='phone'>Phone Number</label>
+                        <input type='text' id='phone' name='phone' />
+                        <div class='footer-error' id='phone-error'></div>
+                    </div>
+                    <div class='footer-form_input'>
+                        <input type='submit' class='btn' value='Submit' />
+                    </div>
+                </div>
+            </div>
+            <p class='footer-form_disclaimer'>
+                By entering your phone number, you agree to receive Bright-Bits
+                offers, promotions, other commercial messages. You can view our
+                Privacy Policy here and you may unsubscribe at any time.
+            </p>
+        </form>
+    </section>
+
     <section class='socials'>
         <div class='app-store'>
             <a href='https://www.apple.com/' target='_blank'>
