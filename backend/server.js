@@ -37,6 +37,14 @@ app.get('/about', (req, res) => {
     res.render('about', { title: 'About Us' });
 });
 
+app.get('/login', (req, res) => {
+    res.render('login', { title: 'Login' });
+});
+
+app.get('/register', (req, res) => {
+    res.render('register', { title: 'Register' });
+});
+
 app.get('/spelling', async (req, res) => {
     try {
         const word = 'Road';
