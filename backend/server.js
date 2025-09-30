@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const exphbs = require("express-handlebars");
 require("dotenv").config();
+const dictionaryData = require("./utils/dictionary");
 
 const api = process.env.DICTIONARY_API_KEY;
 
@@ -29,29 +30,28 @@ app.get("/about", (req, res) => {
 	res.render("about", { title: "About Us" });
 });
 
-// Example API route (for frontend app.js to fetch from)
-app.get("/api/hello", (req, res) => {
-	res.json({ message: "Hello from the backend!" });
-});
-
 // 5. Start server
 app.listen(PORT, () => {
 	console.log(`Server running at http://localhost:${PORT}`);
 });
 
-app.get("/about2", async (req, res) => {
+app.get("/spelling", async (req, res) => {
 	try {
-		const url = `https://www.dictionaryapi.com/api/v3/references/sd2/json/pizza?key=${api}`;
-		const response = await fetch(url);
-
-		if (!response.ok) {
-			throw new Error(`API request failed with status ${response.status}`);
-		}
-
-		const data = await response.json();
-		res.json(data); // ✅ send back the API response
+		const word = "Road";
+		const wordData = await dictionaryData(word);
+		res.json(wordData);
 	} catch (err) {
 		console.error("Error fetching from dictionary API:", err.message);
 		res.status(500).json({ error: "Failed to fetch dictionary data" });
 	}
 });
+
+app.get("/leaderboard", async (req, res) => {
+	//try catch function
+});
+
+app.get("/resources", async (req, res) => {
+	//try catch function for resources
+});
+//Use to grab audio info //pajama02 as the plug in value using the parsed json data
+// https://media.merriam-webster.com/audio/prons/en/us/mp3/p/pajama02.mp3
