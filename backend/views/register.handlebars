@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta
-            name="description"
-            content="Educational website addressing youth literacy rates" />
+    <meta name="description" content="Educational website addressing youth literacy rates" />
     <title>Bright Bits Register</title>
     <link rel="icon" href="/images/2.svg">
     <link rel="stylesheet" href="/css/shared.css">
     <link rel="stylesheet" href="/css/register.css">
-    
+
 </head>
+
 <body>
     {{>header}}
     <main class="main">
-        <form onsubmit="validate(event)" class="register--form" id="form">
+        <form onsubmit="validate(event)" class="register--form" id="form" method="post">
+            <div id="message"></div>
             <h2 class="form--title">Create an Account</h2>
             <div class="register--your-info">
                 <div class="form--group" id="username-container">
                     <label for="username">Username</label>
-                    <input type="text" id="username"  placeholder="Username" maxlength="20">
+                    <input type="text" id="username" placeholder="Username" maxlength="20">
                     <div class="register--error" id="error-username"></div>
                 </div>
 
                 <div class="form--group" id="email-container">
                     <label for="email">Email</label>
-                    <input type="text" id="email"  placeholder="JohnDoe@gmail.com">
+                    <input type="text" id="email" placeholder="JohnDoe@gmail.com">
                     <div class="register--error" id="error-email"></div>
                 </div>
 
                 <div class="form--group" id="first-name-container">
                     <label for="first-name">First Name</label>
-                    <input type="text" id="first-name"  placeholder="John">
+                    <input type="text" id="first-name" placeholder="John">
                     <div class="register--error" id="error-first-name"></div>
                 </div>
 
                 <div class="form--group" id="password-container">
                     <label for="password">Password</label>
-                    <input type="text" id="password"  placeholder="Password" maxlength="30">
+                    <input type="text" id="password" placeholder="Password" maxlength="30">
                     <div class="register--error" id="error-password"></div>
                 </div>
 
                 <div class="form--group">
                     <label for="grade">Grade Level</label>
-                    <select id="grade" >
+                    <select id="grade">
                         <option value="">--Select Grade--</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -55,7 +56,7 @@
 
                 <div class="form--group">
                     <div class="register--form__checkbox">
-                        <input type="checkbox" id="agree-terms" >
+                        <input type="checkbox" id="agree-terms">
                         <label for="agree-terms">Agree to
                             <a href="terms-and-conditions.html" target="_blank">Terms &amp; Conditions</a>
                         </label>
@@ -63,10 +64,11 @@
                     <div class="register--error" id="error-terms"></div>
                 </div>
 
-            <input type="submit" class="form-button" value="Register">
+                <input type="submit" class="form-button" value="Register">
         </form>
     </main>
     {{>footer}}
     <script src="/js/app.js"></script>
 </body>
+
 </html>
