@@ -47,23 +47,8 @@ app.get("/register", (req, res) => {
 	res.render("register", { title: "Register" });
 });
 
-app.get("/spelling", async (req, res) => {
-	let random = [];
-	let wordData = {};
-	try {
-		random = await randomWord(); // wait for random word
-	} catch (err) {
-		console.error("Error fetching from dictionary API:", err.message);
-		res.status(500).json({ error: "Failed to fetch dictionary data" });
-	}
-
-	try {
-		wordData = await getWordDetails(random);
-		return res.json(wordData);
-	} catch (err) {
-		console.error("Error fetching from dictionary API:", err.message);
-		res.status(500).json({ error: "Failed to fetch dictionary data" });
-	}
+app.get("/spelling", (req, res) => {
+	res.render("spelling", { title: "spelling" });
 });
 
 app.get("/leaderboard", async (req, res) => {
@@ -81,4 +66,16 @@ app.get("/resources", async (req, res) => {
 // 5. Start server
 app.listen(PORT, () => {
 	console.log(`Server running at http://localhost:${PORT}`);
+});
+
+app.get("/api/word", async (req, res) => {
+	try {
+		const random = await randomWord();
+		const wordData = await getWordDetails(random);
+
+		res.send({ wordData });
+	} catch (err) {
+		console.error("Error fetching from dictionary API:", err.message);
+		res.status(500).json({ error: "Failed to fetch dictionary data" });
+	}
 });
