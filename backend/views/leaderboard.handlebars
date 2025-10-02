@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +17,21 @@
     {{>header}}
     <main class="main">
         <h1>Leaderboard</h1>
+    {{#each groups}}
+      <div class="player-group">
+        {{#each this}}
+          <div class="player-row">
+            <span class="player-rank">{{ordinal (inc @index)}}</span>
+            <span class="player-name">{{name}}</span>
+            <span class="player-score">{{score}}</span>
+          </div>
+        {{/each}}
+      </div>
+    {{/each}}
     </main>
     {{>footer}}
     <script src="/js/app.js"></script>
 </body>
 </html>
+
+
