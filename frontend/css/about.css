@@ -15,6 +15,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 /* Who We Are -- style */
@@ -67,6 +68,9 @@
   overflow: hidden;
   text-align: center;
   padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .team-member-card img {
@@ -80,4 +84,75 @@
 
 .team-title {
   color: grey;
+}
+
+.team-member-card p,
+.team-member-card a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/*-------------------- Media Queries --------------------*/
+/* For tablet */
+@media screen and (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .team-container {
+    grid-template-columns: repeat(2,1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .team-member-card {
+    padding: 16px;
+  }
+
+  .team-member-card img {
+    height: 220px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 2rem;
+  }
+}
+
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .team-container{
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 2100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .team-member-card {
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .team-member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+
+  .team-member-card img {
+    height: 240px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+  }
 }
