@@ -1,0 +1,88 @@
+.register--form {
+    display: flex;
+    flex-direction: column;
+    grid-auto-rows: minmax(2rem, auto);
+    grid-row-gap: 0.5rem;
+    padding: 1rem 1rem 2rem;
+    border-radius: 5px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.form--title {
+    padding-left: 0.5rem;
+}
+
+.form--group {
+    display: flex;
+    flex-direction: column;
+}
+
+.register--your-info {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 85vw;
+    align-self: center;
+}
+
+.form--title,
+.form--group {
+    grid-column: 1 / span 2;
+}
+
+.register--form label {
+    font-weight: bold;
+    vertical-align: middle;
+    padding-left: 0.25rem;
+}
+
+.register--form input,
+.register--form select {
+    border: 1px solid #ccc;
+    padding: 0.6rem 0.5rem;
+}
+
+.form-button {
+    grid-column: 1 / span 2;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--dark-blue-color);
+    color: white;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form-button:hover {
+    background-color: var(--light-blue-color);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.input-valid {
+    border: 1px solid green;
+}
+
+.input-invalid {
+    border: 1px solid red;
+}
+
+.register--error {
+    color: red;
+    padding: 0.5rem 0;
+    font-weight: bold;
+}
+
+/*-------------------- Media Queries --------------------*/
+/* For tablet */
+@media screen and (min-width: 768px) {
+    .register--form {
+        padding-bottom: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .form--group label {
+        padding-bottom: 0.25rem;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+}

@@ -1,0 +1,83 @@
+/* Hero Image -- style */
+.hero-img-container {
+  background-image: url(/images/pexels-kindelmedia-7978875.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 50vh;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+/* Who We Are -- style */
+.about-us-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-container h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #333;
+}
+
+.about-us-container p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+
+.about-us-container .icon {
+  width: 120px;
+  height: 120px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+/* Our Team -- style */
+.team-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.team-member-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  border-radius: 8px;
+  background-color: white;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 16px;
+}
+
+.team-member-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: block;
+}
+
+.team-title {
+  color: grey;
+}
