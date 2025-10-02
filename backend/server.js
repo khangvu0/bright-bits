@@ -26,7 +26,41 @@ app.engine(
 		layoutsDir: false,
 		partialsDir: path.join(__dirname, "views/partials"),
 		helpers: {
+			globalIndex: (groupIndex, indexInGroup, chunkSize) => groupIndex * chunkSize + indexInGroup + 1,
 			inc: (value) => parseInt(value) + 1,
+			math: (a, operator, b, extraOperator, c) => {
+				a = parseInt(a);
+				b = parseInt(b);
+				c = parseInt(c);
+				switch (operator) {
+					case "*":
+						return a * b + (extraOperator === "+" ? c : 0);
+					case "+":
+						return a + b;
+					default:
+						return 0;
+				}
+			},
+
+			// ordinal helper using if/else
+			ordinal: (n) => {
+				n = parseInt(n, 10);
+				let suffix;
+
+				if (n % 100 === 11 || n % 100 === 12 || n % 100 === 13) {
+					suffix = "th";
+				} else if (n % 10 === 1) {
+					suffix = "st";
+				} else if (n % 10 === 2) {
+					suffix = "nd";
+				} else if (n % 10 === 3) {
+					suffix = "rd";
+				} else {
+					suffix = "th";
+				}
+
+				return n + suffix;
+			},
 		},
 	})
 );
@@ -56,19 +90,18 @@ app.get("/spelling", (req, res) => {
 
 app.get("/leaderboard", async (req, res) => {
 	try {
-		// For now we use hardcoded sample players
-		//Replace with query when it's prepared
+		// create 75 sample players
 		const players = [];
-
-		for (let i = 1; i <= 50; i++) {
+		for (let i = 0; i < 75; i++) {
 			players.push({
-				name: `Player ${i}`,
-				score: Math.floor(Math.random() * 100), // random score 0–99
+				name: `Player ${i + 1}`,
+				score: Math.floor(Math.random() * 100),
+				rank: i + 1, // global rank across all groups
 			});
 		}
 
-		// Split into groups of 50
-		const chunkSize = 50;
+		// split into groups of 25 for display
+		const chunkSize = 25;
 		const groupedPlayers = [];
 		for (let i = 0; i < players.length; i += chunkSize) {
 			groupedPlayers.push(players.slice(i, i + chunkSize));

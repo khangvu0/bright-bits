@@ -16,6 +16,20 @@
     {{>header}}
     <main class="main">
         <h1>Leaderboard</h1>
+{{#each groups}}
+<div class="player-group">
+    <table>
+        {{#each this}}
+        <tr>
+            <td>{{inc @index}} | </td>
+            <td>{{name}} | </td>
+            <td>{{score}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/each}}
+</table>
     </main>
     {{>footer}}
     <script src="/js/app.js"></script>
