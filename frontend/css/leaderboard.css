@@ -1,0 +1,46 @@
+.group0 {
+	background-color: blue;
+}
+
+.group1 {
+	background-color: red;
+}
+
+.group2 {
+	background-color: green;
+}
+
+.player-group {
+	margin-bottom: 2rem;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 1rem;
+	background-color: #f9f9f9;
+}
+
+.player-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid #eee;
+}
+
+.player-row:last-child {
+	border-bottom: none;
+}
+
+.player-rank {
+	width: 50px;
+	font-weight: bold;
+}
+
+.player-name {
+	flex: 1;
+	margin-left: 1rem;
+}
+
+.player-score {
+	width: 50px;
+	text-align: right;
+	font-weight: bold;
+}
