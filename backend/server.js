@@ -25,6 +25,9 @@ app.engine(
 		defaultLayout: false,
 		layoutsDir: false,
 		partialsDir: path.join(__dirname, "views/partials"),
+		helpers: {
+			inc: (value) => parseInt(value) + 1,
+		},
 	})
 );
 app.set("view engine", "handlebars");
@@ -52,9 +55,33 @@ app.get("/spelling", (req, res) => {
 });
 
 app.get("/leaderboard", async (req, res) => {
-	res.render("leaderboard", { title: "Leaderboard" });
-	//try catch function
+	try {
+		// For now we use hardcoded sample players
+		//Replace with query when it's prepared
+		const players = [];
+
+		for (let i = 1; i <= 50; i++) {
+			players.push({
+				name: `Player ${i}`,
+				score: Math.floor(Math.random() * 100), // random score 0–99
+			});
+		}
+
+		// Split into groups of 50
+		const chunkSize = 50;
+		const groupedPlayers = [];
+		for (let i = 0; i < players.length; i += chunkSize) {
+			groupedPlayers.push(players.slice(i, i + chunkSize));
+		}
+
+		res.render("leaderboard", { groups: groupedPlayers });
+	} catch (err) {
+		console.error(err);
+		res.status(500).send("Server error");
+	}
 });
+
+//try catch function
 
 app.get("/resources", async (req, res) => {
 	res.render("resources", { title: "Resources" });
