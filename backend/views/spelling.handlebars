@@ -15,9 +15,42 @@
 <body>
     {{>header}}
     <main class="main">
-        <h1>Spelling Page</h1>
+         <div class="container">
+            <h1>Spelling Bee Game</h1>
+            <div class="stats">
+                <div id="lives-box">Lives: <span id="lives">3</span></div>
+                <div id="score-box">Score: <span id="score">0</span></div>
+            </div>
+            
+            <!-- Word prompt -->
+            <div class="game-box">
+                <div class="definition-container">
+                    <h2 class="definition-title">Definition:</h2>
+                    <p id="definition">Loading definition...</p>
+                </div>
+                <button id="speak-btn">🔊 Hear Pronunciation</button>
+                <input type="text" id="word-input" placeholder="Type your spelling..." />
+                <button id="submit-btn">Submit</button>
+            </div>
+
+            <!-- Feedback section -->
+            <div id="feedback" class="hidden"></div>
+
+            <!-- Correct answer + definitions -->
+            <div id="answer-box" class="hidden">
+                <h2 id="correct-word"></h2>
+                <div class="definition-container">
+                    <h2 class="definition-title">Definitions:</h2>
+                    <ul id="definitions-list"></ul>
+                </div>
+                <button id="continue-btn">Continue</button>
+            </div>
+
+            <button id="restart-btn" class="hidden">Restart Game</button>
+        </div>
     </main>
     {{>footer}}
+    <script src="/js/spelling.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>

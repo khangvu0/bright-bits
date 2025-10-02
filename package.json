@@ -20,6 +20,7 @@
     },
     "homepage": "https://github.com/khangvu0/bright-bits#readme",
     "dependencies": {
+        "bcrypt": "^6.0.0",
         "dotenv": "^17.2.2",
         "express": "^5.1.0",
         "express-handlebars": "^8.0.3",
