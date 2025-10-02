@@ -157,6 +157,8 @@ a {
     width: 100%;
     background-color: var(--footer-color);
     padding: 1.25rem 1.5rem;
+    border-top: 2px solid #e0e0e0;
+    margin-top: 1rem;
 }
 
 .sign-up,
