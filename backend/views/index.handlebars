@@ -14,49 +14,31 @@
 </head>
 <body>
     {{>header}}
-    <main class="main">
-        <section class="hero">
-            <img
-                src="/images/background-2.jpg"
-                alt="kids learning background image"
-                class="hero-image" />
-            <div class="hero-text-container">
-                <h1 class="hero-title">
-                    Your Child's Path To Success Starts Here
-                </h1>
-                <p class="hero-subtitle">Spelling Game</p>
+    <main class="hero">
+        <section class="hero-img-container">
+            <div class="hero-text">
+                <h1>Your Child's Path To Success Starts Here</h1>
+                <button class="hero-button">Spelling Game</button>
             </div>
         </section>
 
         <section class="about">
             <div class="org-container">
+                <img class="dog-character" src="/images/dog-character.svg">
                 <h2 class="org-title">Bright-Bits</h2>
                 <p class="org-subtitle">We are dedicated to closing the literacy gap for children in grades three through five by providing an engaging platform that strengthens spelling, expands vocabulary, and builds lifelong learning skills.</p>
             </div>
 
             <div class="why-container">
+                <img class="tutu-character" src="/images/tutu-character.svg">
                 <h2 class="why-title">Why Literacy Matters</h2>
-                <p class="whhy-subtitle">We help children in grades 3–5 build confidence in spelling and vocabulary through fun, interactive games</p>
+                <p class="whhy-subtitle">40% of fourth graders and 1/3 of eighth graders are failing to meet the basic level of proficiency targets that are set by the National Assessment Governing Board according to The Harvard Gazette.</p>
             </div>
         </section>
 
         <section class="poster">
-            <img
-                src="/images/spelling-poster.png"
-                alt="spelling bee poster"
-                class="poster-image" />
-            <p class="poster-subtitle">Check the Leaderboard</p>
-        </section>
-
-        <section class="about">
-            <img
-                src="/images/background-4.jpg"
-                alt="hand background poster image"
-                class="about-image" />
-            <div class="about-container">
-                <h2 class="about-title">Our Mission</h2>
-                <p class="about-subtitle">We have created Bright Bits to address </p>
-            </div>
+            <img src="/images/spelling-bee-poster.svg" alt="Spelling Bee Poster" class="poster-image">
+            <button class="check-leaderboard-button">Check the Leaderboard</button>
         </section>
     </main>
     {{>footer}}
