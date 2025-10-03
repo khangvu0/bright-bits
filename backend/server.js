@@ -1,12 +1,12 @@
-const path = require("path");
-const express = require("express");
-const exphbs = require("express-handlebars");
-require("dotenv").config();
+const path = require('path');
+const express = require('express');
+const exphbs = require('express-handlebars');
+require('dotenv').config();
 
-const getWordDetails = require("./utils/dictionary");
-const randomWord = require("./utils/random");
-const db = require("./db");
-const bcrypt = require("bcrypt");
+const getWordDetails = require('./utils/dictionary');
+const randomWord = require('./utils/random');
+const db = require('./db');
+const bcrypt = require('bcrypt');
 
 const api = process.env.DICTIONARY_API_KEY;
 
@@ -18,26 +18,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 2. Serve static frontend assets (css, js, images)
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // 3. Set up Handlebars as the view engine
 app.engine(
-    "handlebars",
+    'handlebars',
     exphbs.engine({
         defaultLayout: false,
         layoutsDir: false,
-        partialsDir: path.join(__dirname, "views/partials"),
+        partialsDir: path.join(__dirname, 'views/partials'),
         helpers: {
-            globalIndex: (groupIndex, indexInGroup, chunkSize) => groupIndex * chunkSize + indexInGroup + 1,
+            globalIndex: (groupIndex, indexInGroup, chunkSize) =>
+                groupIndex * chunkSize + indexInGroup + 1,
             inc: (value) => parseInt(value) + 1,
             math: (a, operator, b, extraOperator, c) => {
                 a = parseInt(a);
                 b = parseInt(b);
                 c = parseInt(c);
                 switch (operator) {
-                    case "*":
-                        return a * b + (extraOperator === "+" ? c : 0);
-                    case "+":
+                    case '*':
+                        return a * b + (extraOperator === '+' ? c : 0);
+                    case '+':
                         return a + b;
                     default:
                         return 0;
@@ -50,15 +51,15 @@ app.engine(
                 let suffix;
 
                 if (n % 100 === 11 || n % 100 === 12 || n % 100 === 13) {
-                    suffix = "th";
+                    suffix = 'th';
                 } else if (n % 10 === 1) {
-                    suffix = "st";
+                    suffix = 'st';
                 } else if (n % 10 === 2) {
-                    suffix = "nd";
+                    suffix = 'nd';
                 } else if (n % 10 === 3) {
-                    suffix = "rd";
+                    suffix = 'rd';
                 } else {
-                    suffix = "th";
+                    suffix = 'th';
                 }
 
                 return n + suffix;
@@ -66,21 +67,21 @@ app.engine(
         },
     })
 );
-app.set("view engine", "handlebars");
-app.set("views", path.join(__dirname, "views"));
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
 
 // 4. Routes
-app.get("/", (req, res) => {
-    res.render("index", { title: "Welcome to Child Literacy App" });
+app.get('/', (req, res) => {
+    res.render('index', { title: 'Welcome to Child Literacy App' });
 });
 
-app.get("/about", (req, res) => {
-    res.render("about", { title: "About Us" });
+app.get('/about', (req, res) => {
+    res.render('about', { title: 'About Us' });
 });
 
 // Login render and route
-app.get("/login", (req, res) => {
-    res.render("login", { title: "Login" });
+app.get('/login', (req, res) => {
+    res.render('login', { title: 'Login' });
 });
 
 app.post('/login', async (req, res) => {
@@ -88,13 +89,20 @@ app.post('/login', async (req, res) => {
         const { user_name, password } = req.body;
 
         if (!user_name || !password) {
-            return res.status(400).json({ error: 'Username and password are required' });
+            return res
+                .status(400)
+                .json({ error: 'Username and password are required' });
         }
 
         // Look up user by username
-        const [rows] = await db.query('SELECT * FROM users WHERE user_name = ?', [user_name]);
+        const [rows] = await db.query(
+            'SELECT * FROM users WHERE user_name = ?',
+            [user_name]
+        );
         if (rows.length === 0) {
-            return res.status(401).json({ error: 'Invalid username or password' });
+            return res
+                .status(401)
+                .json({ error: 'Invalid username or password' });
         }
 
         const user = rows[0];
@@ -103,15 +111,16 @@ app.post('/login', async (req, res) => {
         const match = await bcrypt.compare(password, user.password_hash);
 
         if (!match) {
-            return res.status(401).json({ error: 'Invalid username or password' });
+            return res
+                .status(401)
+                .json({ error: 'Invalid username or password' });
         }
 
         res.json({
             message: `Welcome back, ${user.first_name}!`,
             userId: user.id,
-            user_name: user.user_name
+            user_name: user.user_name,
         });
-
     } catch (err) {
         console.error('Login error:', err);
         res.status(500).json({ error: 'Server error during login' });
@@ -119,31 +128,40 @@ app.post('/login', async (req, res) => {
 });
 
 // Render register page
-app.get("/register", (req, res) => {
-    res.render("register", { title: "Register" });
+app.get('/register', (req, res) => {
+    res.render('register', { title: 'Register' });
 });
 
 // Handle form submissions
-app.post("/register", async (req, res) => {
+app.post('/register', async (req, res) => {
     try {
-        console.log("Incoming form data:", req.body);
+        console.log('Incoming form data:', req.body);
 
-        const { user_name, email, first_name, password, grade_level } = req.body;
+        const { user_name, email, first_name, password, grade_level } =
+            req.body;
 
         if (!first_name || !user_name || !email || !password || !grade_level) {
-            return res.status(400).json({ error: "All fields are required" });
+            return res.status(400).json({ error: 'All fields are required' });
         }
 
         // Check username
-        const [existingUsername] = await db.query("SELECT id FROM users WHERE user_name = ?", [user_name]);
+        const [existingUsername] = await db.query(
+            'SELECT id FROM users WHERE user_name = ?',
+            [user_name]
+        );
         if (existingUsername.length > 0) {
-            return res.status(409).json({ error: "Username already exists" });
+            return res.status(409).json({ error: 'Username already exists' });
         }
 
         // Check email
-        const [existingEmail] = await db.query("SELECT id FROM users WHERE email = ?", [email]);
+        const [existingEmail] = await db.query(
+            'SELECT id FROM users WHERE email = ?',
+            [email]
+        );
         if (existingEmail.length > 0) {
-            return res.status(409).json({ error: "Email already registered, please sign in!" });
+            return res
+                .status(409)
+                .json({ error: 'Email already registered, please sign in!' });
         }
 
         // Hash password
@@ -152,7 +170,7 @@ app.post("/register", async (req, res) => {
 
         // Insert user
         const [result] = await db.query(
-            "INSERT INTO users (user_name, email, first_name, password_hash, grade_level) VALUES (?, ?, ?, ?, ?)",
+            'INSERT INTO users (user_name, email, first_name, password_hash, grade_level) VALUES (?, ?, ?, ?, ?)',
             [user_name, email, first_name, password_hash, grade_level]
         );
 
@@ -162,21 +180,25 @@ app.post("/register", async (req, res) => {
             user_name: user_name,
         });
     } catch (error) {
-        console.error("Registration error:", error);
-        res.status(500).json({ error: "An error occurred during registration" });
+        console.error('Registration error:', error);
+        res.status(500).json({
+            error: 'An error occurred during registration',
+        });
     }
 });
 
-app.get("/spelling", (req, res) => {
-    res.render("spelling", { title: "spelling" });
+app.get('/spelling', (req, res) => {
+    res.render('spelling', { title: 'spelling' });
 });
 
-app.post("/spelling", async (req, res) => {
+app.post('/spelling', async (req, res) => {
     try {
         const { user_id, score } = req.body;
 
         if (!user_id || score === undefined) {
-            return res.status(400).json({ error: 'user_id and score are required' });
+            return res
+                .status(400)
+                .json({ error: 'user_id and score are required' });
         }
 
         // Insert score
@@ -187,46 +209,38 @@ app.post("/spelling", async (req, res) => {
 
         res.status(201).json({
             message: 'Score recorded successfully',
-            scoreId: result.insertId
+            scoreId: result.insertId,
         });
-
     } catch (err) {
         console.error('Error saving score:', err);
         res.status(500).json({ error: 'Failed to save score' });
     }
 });
 
-
-app.get("/leaderboard", async (req, res) => {
+app.get('/leaderboard', async (req, res) => {
     try {
-        const [rows] = await db.query(`
-            SELECT u.user_name, g.score, g.created_at
-            FROM game_score g
-            JOIN users u ON g.user_id = u.id
-            ORDER BY g.score DESC
-            LIMIT 50
-        `);
-
+        const [players] = await db.query(`
+      SELECT u.user_name AS name, g.score
+      FROM game_score g
+      JOIN users u ON g.user_id = u.id
+      ORDER BY g.score DESC
+      LIMIT 50
+    `);
         // split into groups of 25 for display
         const chunkSize = 25;
         const groupedPlayers = [];
         for (let i = 0; i < players.length; i += chunkSize) {
             groupedPlayers.push(players.slice(i, i + chunkSize));
         }
-        res.json(rows);
+        res.render('leaderboard', { groups: groupedPlayers });
     } catch (err) {
         console.error('Error fetching leaderboard:', err);
-        res.status(500).json({ error: 'Failed to fetch leaderboard' });
+        res.status(500).send('Server error');
     }
-    //     res.render("leaderboard", { groups: groupedPlayers });
-    // } catch (err) {
-    //     console.error(err);
-    //     res.status(500).send("Server error");
-    // }
 });
 
-app.get("/resources", async (req, res) => {
-    res.render("resources", { title: "Resources" });
+app.get('/resources', async (req, res) => {
+    res.render('resources', { title: 'Resources' });
     //try catch function for resources
 });
 //Use to grab audio info //pajama02 as the plug in value using the parsed json data
@@ -237,14 +251,14 @@ app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
 
-app.get("/api/word", async (req, res) => {
+app.get('/api/word', async (req, res) => {
     try {
         const random = await randomWord();
         const wordData = await getWordDetails(random);
 
         res.send({ wordData });
     } catch (err) {
-        console.error("Error fetching from dictionary API:", err.message);
-        res.status(500).json({ error: "Failed to fetch dictionary data" });
+        console.error('Error fetching from dictionary API:', err.message);
+        res.status(500).json({ error: 'Failed to fetch dictionary data' });
     }
 });
