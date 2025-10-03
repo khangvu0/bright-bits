@@ -6,23 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const formData = {
-            user_name: document.getElementById('user_name').value.trim(),
-            password: document.getElementById('password').value
+            user_name: document.getElementById('username').value.trim(),
+            password: document.getElementById('password').value,
         };
 
         try {
             const response = await fetch('/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData),
             });
 
             const data = await response.json();
 
-            messageDiv.textContent = "";
-            const p = document.createElement("p");
-            p.textContent = response.ok ? data.message : (data.error || "Login failed");
-            p.style.color = response.ok ? "green" : "red";
+            messageDiv.textContent = '';
+            const p = document.createElement('p');
+            p.textContent = response.ok
+                ? data.message
+                : data.error || 'Login failed';
+            p.style.color = response.ok ? 'green' : 'red';
             messageDiv.appendChild(p);
 
             if (response.ok) {
@@ -30,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (err) {
             // console.error(err);
-            messageDiv.textContent = "Network error!";
-            messageDiv.style.color = "red";
+            messageDiv.textContent = 'Network error!';
+            messageDiv.style.color = 'red';
         }
     });
 });
