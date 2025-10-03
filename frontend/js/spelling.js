@@ -133,6 +133,22 @@ submitBtn.addEventListener('click', () => {
     feedbackEl.classList.remove('hidden');
 });
 
+// Inserts and saves score 
+async function submitScore(userId, score) {
+    try {
+        const res = await fetch('/spelling', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user_id: userId, score })
+        });
+
+        const data = await res.json();
+        console.log(data);
+    } catch (err) {
+        console.error('Failed to submit score:', err);
+    }
+}
+
 continueBtn.addEventListener('click', getNewWord);
 restartBtn.addEventListener('click', restartGame);
 window.addEventListener('DOMContentLoaded', getNewWord);

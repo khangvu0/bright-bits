@@ -7,7 +7,7 @@ form.addEventListener('submit', async (e) => {
     const formData = {
         user_name: document.getElementById('username').value.trim(),
         email: document.getElementById('email').value.trim(),
-        firstName: document.getElementById('firstName').value.trim(),
+        first_name: document.getElementById('first_name').value.trim(),
         password: document.getElementById('password').value,
         grade_level: parseInt(document.getElementById('grade').value)
     };
