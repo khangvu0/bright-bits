@@ -15,19 +15,26 @@
 </head>
 <body>
     {{>header}}
-    <main class="main">
-        <h1>Leaderboard</h1>
-    {{#each groups}}
-      <div class="player-group">
-        {{#each this}}
-          <div class="player-row">
-            <span class="player-rank">{{ordinal (inc @index)}}</span>
-            <span class="player-name">{{name}}</span>
-            <span class="player-score">{{score}}</span>
+    <main class="main"> 
+      <h1 class="leaderboard-title">Leaderboard</h1>
+      <div class="leaderboard-container">
+        {{#each groups}}
+        <div class="player-group">
+          <div class="header-row">
+            <span class="header-rank">Rank</span>
+            <span class="header-name">Name</span>
+            <span class="header-score">Score</span>
           </div>
-        {{/each}}
-      </div>
-    {{/each}}
+          {{#each this}}
+            <div class="player-row">
+              <span class="player-rank">{{ordinal (globalIndex @../index @index 25)}}</span>
+              <span class="player-name">{{name}}</span>
+              <span class="player-score">{{score}}</span>
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
     </main>
     {{>footer}}
     <script src="/js/app.js"></script>
