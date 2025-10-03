@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const formData = {
-            user_name: document.getElementById('username').value.trim(),
+            user_name: document.getElementById('user_name').value.trim(),
             password: document.getElementById('password').value
         };
 

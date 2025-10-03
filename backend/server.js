@@ -107,7 +107,7 @@ app.post('/login', async (req, res) => {
         }
 
         res.json({
-            message: `Welcome back, ${user.firstName}!`,
+            message: `Welcome back, ${user.first_name}!`,
             userId: user.id,
             user_name: user.user_name
         });
@@ -128,9 +128,9 @@ app.post("/register", async (req, res) => {
     try {
         console.log("Incoming form data:", req.body);
 
-        const { user_name, email, firstName, password, grade_level } = req.body;
+        const { user_name, email, first_name, password, grade_level } = req.body;
 
-        if (!firstName || !user_name || !email || !password || !grade_level) {
+        if (!first_name || !user_name || !email || !password || !grade_level) {
             return res.status(400).json({ error: "All fields are required" });
         }
 
@@ -152,12 +152,12 @@ app.post("/register", async (req, res) => {
 
         // Insert user
         const [result] = await db.query(
-            "INSERT INTO users (user_name, email, firstName, password_hash, grade_level) VALUES (?, ?, ?, ?, ?)",
-            [user_name, email, firstName, password_hash, grade_level]
+            "INSERT INTO users (user_name, email, first_name, password_hash, grade_level) VALUES (?, ?, ?, ?, ?)",
+            [user_name, email, first_name, password_hash, grade_level]
         );
 
         res.status(201).json({
-            message: `Welcome ${firstName}!`,
+            message: `Welcome ${first_name}!`,
             userId: result.insertId,
             user_name: user_name,
         });
@@ -171,17 +171,41 @@ app.get("/spelling", (req, res) => {
     res.render("spelling", { title: "spelling" });
 });
 
+app.post("/spelling", async (req, res) => {
+    try {
+        const { user_id, score } = req.body;
+
+        if (!user_id || score === undefined) {
+            return res.status(400).json({ error: 'user_id and score are required' });
+        }
+
+        // Insert score
+        const [result] = await db.query(
+            'INSERT INTO game_score (user_id, score) VALUES (?, ?)',
+            [user_id, score]
+        );
+
+        res.status(201).json({
+            message: 'Score recorded successfully',
+            scoreId: result.insertId
+        });
+
+    } catch (err) {
+        console.error('Error saving score:', err);
+        res.status(500).json({ error: 'Failed to save score' });
+    }
+});
+
+
 app.get("/leaderboard", async (req, res) => {
     try {
-        // create 75 sample players
-        const players = [];
-        for (let i = 0; i < 50; i++) {
-            players.push({
-                name: `Player ${i + 1}`,
-                score: Math.floor(Math.random() * 100),
-                rank: i + 1, // global rank across all groups
-            });
-        }
+        const [rows] = await db.query(`
+            SELECT u.user_name, g.score, g.created_at
+            FROM game_score g
+            JOIN users u ON g.user_id = u.id
+            ORDER BY g.score DESC
+            LIMIT 50
+        `);
 
         // split into groups of 25 for display
         const chunkSize = 25;
@@ -189,12 +213,16 @@ app.get("/leaderboard", async (req, res) => {
         for (let i = 0; i < players.length; i += chunkSize) {
             groupedPlayers.push(players.slice(i, i + chunkSize));
         }
-
-        res.render("leaderboard", { groups: groupedPlayers });
+        res.json(rows);
     } catch (err) {
-        console.error(err);
-        res.status(500).send("Server error");
+        console.error('Error fetching leaderboard:', err);
+        res.status(500).json({ error: 'Failed to fetch leaderboard' });
     }
+    //     res.render("leaderboard", { groups: groupedPlayers });
+    // } catch (err) {
+    //     console.error(err);
+    //     res.status(500).send("Server error");
+    // }
 });
 
 app.get("/resources", async (req, res) => {
