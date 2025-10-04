@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include', // <-- sends/receives session cookie
                 body: JSON.stringify(formData),
             });
 
@@ -28,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             messageDiv.appendChild(p);
 
             if (response.ok) {
-                // Example redirect after success
+                // Redirects to spelling page on success
+                window.location.href = '/spelling';
             }
         } catch (err) {
             // console.error(err);

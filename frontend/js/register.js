@@ -16,6 +16,7 @@ form.addEventListener('submit', async (e) => {
         const response = await fetch('/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify(formData)
         });
 
@@ -37,7 +38,8 @@ form.addEventListener('submit', async (e) => {
         messageDiv.appendChild(p);
 
         if (response.ok) {
-            form.reset();
+            // form.reset();
+            window.location.href = '/login';
         }
 
     } catch (err) {
