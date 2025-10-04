@@ -326,9 +326,6 @@ a {
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
-    .footer {
-        padding-top: 2rem;
-    }
     .nav_logo {
         font-size: 1.3rem;
     }
@@ -337,8 +334,13 @@ a {
         gap: 2rem;
     }
 
+    .footer {
+        padding-top: 2rem;
+    }
+
     .laptop-display {
         display: flex;
+        gap: 2vw;
     }
 
     .footer-form_intro,
