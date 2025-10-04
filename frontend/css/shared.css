@@ -224,16 +224,22 @@ a {
 
 #phone-error {
     color: red;
-    padding-top: 0.5rem;
+    padding: 0.5rem 0 0.25rem;
     font-size: 0.9rem;
 }
 
 .input-valid {
     border: 1px solid green;
+    border: 1px solid #28a745;
+    background-color: #e9f9ee;
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
 }
 
 .input-invalid {
     border: 1px solid red;
+    border: 1px solid #dc3545;
+    background-color: #fcebea;
+    box-shadow: 0 0 4px rgba(220, 53, 69, 0.3);
 }
 
 .app-store,
@@ -260,8 +266,12 @@ a {
 }
 
 /*-------------------- Media Queries --------------------*/
-/* Tablet & Up */
+/* For tablet */
 @media screen and (min-width: 768px) {
+    .nav_icon {
+        font-size: 1rem;
+    }
+
     .nav_item.dropdown > .nav_icon {
         display: none;
     }
@@ -295,13 +305,6 @@ a {
         background-color: unset;
         color: var(--light-blue-color);
     }
-}
-
-/* For tablet */
-@media screen and (min-width: 768px) {
-    .nav_icon {
-        font-size: 1rem;
-    }
 
     .footer-form_input-container {
         display: grid;
@@ -315,10 +318,17 @@ a {
         width: 100%;
         margin-top: 40px;
     }
+
+    .app-store {
+        margin-bottom: 2rem;
+    }
 }
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
+    .footer {
+        padding-top: 2rem;
+    }
     .nav_logo {
         font-size: 1.3rem;
     }
@@ -337,8 +347,19 @@ a {
         margin-bottom: 0.5rem;
     }
 
-    .app-store {
-        margin-bottom: 1.5rem;
+    .footer-form_input-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: unset;
+        gap: unset;
+    }
+
+    .footer-form_input label {
+        margin: 0 0 0.25rem 0;
+    }
+
+    .footer-form .btn {
+        margin-top: unset;
     }
 }
 
