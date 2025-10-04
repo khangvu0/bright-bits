@@ -133,17 +133,22 @@ submitBtn.addEventListener('click', () => {
     feedbackEl.classList.remove('hidden');
 });
 
-// Inserts and saves score 
-async function submitScore(userId, score) {
+// Inserts and saves score (session handles user!)
+async function submitScore(score) {
     try {
         const res = await fetch('/spelling', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ user_id: userId, score })
+            credentials: 'include',
+            body: JSON.stringify({ score })
         });
 
         const data = await res.json();
-        console.log(data);
+        if (!res.ok) {
+            console.error('Error saving score:', data.error || data);
+        } else {
+            console.log('Score saved:', data);
+        }
     } catch (err) {
         console.error('Failed to submit score:', err);
     }
