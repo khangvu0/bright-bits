@@ -65,6 +65,7 @@ form.addEventListener('submit', async (e) => {
         const response = await fetch('/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include', // <-- sends/receives session cookie
             body: JSON.stringify(formData),
         });
 
@@ -85,7 +86,7 @@ form.addEventListener('submit', async (e) => {
         messageDiv.appendChild(p);
 
         if (response.ok) {
-            form.reset();
+            window.location.href = '/spelling';
             // clear valid/invalid borders
             [username, password].forEach((field) =>
                 field.classList.remove('input-valid', 'input-invalid')

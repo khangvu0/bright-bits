@@ -8,10 +8,29 @@ const randomWord = require('./utils/random');
 const db = require('./db');
 const bcrypt = require('bcrypt');
 
+//  Express sessions
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+
 const api = process.env.DICTIONARY_API_KEY;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+//  Sessions setup
+const sessionStore = new MySQLStore({}, db);
+app.use(session({
+    key: 'session_cookie_name',
+    secret: process.env.SESSION_SECRET || 'supersecret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 2, // 2 hours
+        httpOnly: true,
+        secure: false // set true if using HTTPS
+    }
+}));
 
 // 1. Middleware to parse JSON and form data
 app.use(express.json());
@@ -116,6 +135,10 @@ app.post('/login', async (req, res) => {
                 .json({ error: 'Invalid username or password' });
         }
 
+        // Save user info into the session
+        req.session.userId = user.id;
+        req.session.username = user.username;
+
         res.json({
             message: `Welcome back, ${user.first_name}!`,
             userId: user.id,
@@ -126,6 +149,13 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ error: 'Server error during login' });
     }
 });
+
+
+// Sessions Middleware
+function requireLogin(req, res, next) {
+    if (!req.session.userId) return res.status(401).json({ error: 'Unauthorized' });
+    next();
+}
 
 // Render register page
 app.get('/register', (req, res) => {
