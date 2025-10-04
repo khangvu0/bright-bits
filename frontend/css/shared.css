@@ -260,8 +260,12 @@ a {
 }
 
 /*-------------------- Media Queries --------------------*/
-/* Tablet & Up */
+/* For tablet */
 @media screen and (min-width: 768px) {
+    .nav_icon {
+        font-size: 1rem;
+    }
+
     .nav_item.dropdown > .nav_icon {
         display: none;
     }
@@ -295,13 +299,6 @@ a {
         background-color: unset;
         color: var(--light-blue-color);
     }
-}
-
-/* For tablet */
-@media screen and (min-width: 768px) {
-    .nav_icon {
-        font-size: 1rem;
-    }
 
     .footer-form_input-container {
         display: grid;
@@ -314,6 +311,10 @@ a {
         padding: 0.5rem 1.5rem;
         width: 100%;
         margin-top: 40px;
+    }
+
+    .app-store {
+        margin-bottom: 2rem;
     }
 }
 
@@ -337,8 +338,19 @@ a {
         margin-bottom: 0.5rem;
     }
 
-    .app-store {
-        margin-bottom: 1.5rem;
+    .footer-form_input-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: unset;
+        gap: unset;
+    }
+
+    .footer-form_input label {
+        margin: 0 0 0.25rem 0;
+    }
+
+    .footer-form .btn {
+        margin-top: unset;
     }
 }
 
