@@ -1,44 +1,51 @@
 .register--form {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     grid-auto-rows: minmax(2rem, auto);
     grid-row-gap: 0.5rem;
-    padding: 1rem 1rem 2rem;
     border-radius: 5px;
-    border-bottom: 2px solid #e0e0e0;
-}
-
-.form--title {
-    padding-left: 0.5rem;
 }
 
 .form--group {
     display: flex;
     flex-direction: column;
-}
-
-.register--your-info {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    width: 85vw;
-    align-self: center;
-}
-
-.form--title,
-.form--group {
-    grid-column: 1 / span 2;
+    margin-bottom: 0.25rem;
 }
 
 .register--form label {
     font-weight: bold;
     vertical-align: middle;
-    padding-left: 0.25rem;
 }
 
+.register--form label,
 .register--form input,
+.register--form select {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.register--form input[id*='terms'],
+.register--form input[id*='terms'] + label {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.register--form input:not([type='checkbox']),
 .register--form select {
     border: 1px solid #ccc;
     padding: 0.6rem 0.5rem;
+}
+
+.register--form input[type='checkbox'] {
+    width: 1rem;
+    height: 1rem;
+}
+
+.register--form__checkbox a {
+    color: blue;
 }
 
 .form-button {
@@ -57,32 +64,55 @@
 }
 
 .input-valid {
-    border: 1px solid green;
+    border: 1px solid #28a745;
+    background-color: #e9f9ee;
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
 }
 
 .input-invalid {
-    border: 1px solid red;
+    border: 1px solid #dc3545;
+    background-color: #fcebea;
+    box-shadow: 0 0 4px rgba(220, 53, 69, 0.3);
 }
 
 .register--error {
     color: red;
-    padding: 0.5rem 0;
-    font-weight: bold;
+    padding: 0.25rem 0 0.5rem;
 }
 
 /*-------------------- Media Queries --------------------*/
 /* For tablet */
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
     .register--form {
-        padding-bottom: 3rem;
-        margin-bottom: 1rem;
+        margin: auto auto;
+        width: 80vw;
+        grid-template-columns: 10rem auto;
     }
 
-    .form--group label {
-        padding-bottom: 0.25rem;
+    .form--group {
+        margin-bottom: 0.5rem;
+    }
+
+    .register--form label,
+    .register--form input,
+    .register--form select {
+        font-size: 1.1rem;
     }
 }
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
+    .main {
+        margin-bottom: 1rem;
+    }
+
+    .donation--form {
+        width: 60vw;
+    }
+
+    .register--form label,
+    .register--form input,
+    .register--form select {
+        font-size: 1.1rem;
+    }
 }
