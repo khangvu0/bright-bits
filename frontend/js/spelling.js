@@ -123,7 +123,7 @@ submitBtn.addEventListener('click', () => {
             feedbackEl.textContent = `❌ Incorrect, try again.`;
             feedbackEl.style.color = 'red';
         } else {
-            feedbackEl.textContent = '💀 Game Over! Final score: ' + score;
+            feedbackEl.innerHTML = `💀 Game Over!<br>The correct word is "${currentWord[0].word}"<br>Final score: ` + score;
             feedbackEl.style.color = 'red';
             submitBtn.disabled = true;
             wordInput.disabled = true;
