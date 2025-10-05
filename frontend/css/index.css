@@ -22,7 +22,7 @@
 .hero-button {
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background-color: var(--poster-yellow-color);
+    background-color: var(--spelling-yellow-1);
     color: var(--text-color);
     border: none;
     border-radius: 8px;
@@ -33,7 +33,7 @@
 }
 
 .hero-button:hover {
-    background-color: var(--spelling-yellow-1);
+    background-color: var(--poster-yellow-color);
     transform: scale(1.05);
 }
 
@@ -52,11 +52,11 @@
     text-align: center;
 }
 .org-container {
-    background-color: #70c1e1;
+    background-color: var(--blue-color);
 }
 
 .why-container {
-    background-color: #faa4b5;
+    background-color: var(--pink-color);
 }
 .org-container .dog-character,
 .why-container .tutu-character {
@@ -122,7 +122,7 @@
     display: block;
     margin: 0 auto 1rem auto;
     padding: 0.75rem 1.5rem;
-    background-color: var(--poster-yellow-color);
+    background-color: var(--spelling-yellow-1);
     border: none;
     border-radius: 8px;
     font-size: 1.2rem;
@@ -132,7 +132,7 @@
 }
 
 .check-leaderboard-button:hover {
-    background-color: var(--spelling-yellow-1);
+    background-color: var(--poster-yellow-color);
     transform: scale(1.05);
 }
 
@@ -160,7 +160,7 @@
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 1rem;
-    border: 3px solid var(--spelling-yellow-1);
+    border: 3px solid var(--blue-color);
 }
 
 .testimonial-card h3 {
