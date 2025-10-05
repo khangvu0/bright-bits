@@ -36,7 +36,8 @@ h1 {
     margin: 0.25rem 0;
 }
 
-.game-box {
+.game-box,
+.answer-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +49,6 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 1rem;
     width: 100%;
 }
 
@@ -107,12 +107,9 @@ button:hover {
     display: none;
 }
 
-#answer-box {
-    margin-top: 20px;
-}
-
 #definitions-list li {
     text-align: left;
+    margin-bottom: 0.25rem;
 }
 
 #correct-word {
@@ -120,46 +117,20 @@ button:hover {
 }
 
 /*-------------------- Media Queries --------------------*/
-/* Tablet & Up */
-@media screen and (min-width: 768px) {
-    .nav_item.dropdown > .nav_link {
-        display: none;
-    }
-
-    .dropdown_menu {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        gap: 1.2rem;
-        box-shadow: none;
-        background-color: transparent;
-    }
-
-    .dropdown_menu li {
-        padding: 0;
-    }
-
-    .dropdown_item {
-        font-size: 1rem;
-    }
-
-    .dropdown:hover .dropdown_menu {
-        display: flex;
-    }
-
-    .dropdown_item::after {
-        content: none;
-    }
-
-    .dropdown_menu li:hover {
-        color: var(--light-blue-color);
-    }
-}
-
 /* For tablet */
 @media screen and (min-width: 768px) {
+    .main {
+        padding-bottom: 1rem;
+    }
+
+    .container {
+        width: 60%;
+    }
 }
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
+    .main {
+        padding-bottom: 3.5rem;
+    }
 }
