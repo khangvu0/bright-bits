@@ -218,7 +218,8 @@ app.post('/register', async (req, res) => {
 });
 
 app.get('/spelling', (req, res) => {
-    res.render('spelling', { title: 'spelling' });
+    const username = req.session.username || null;
+    res.render('spelling', { title: 'spelling', username });
 });
 
 app.post('/spelling', requireLogin, async (req, res) => {
