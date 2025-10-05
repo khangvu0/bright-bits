@@ -137,7 +137,7 @@ app.post('/login', async (req, res) => {
 
         // Save user info into the session
         req.session.userId = user.id;
-        req.session.username = user.username;
+        req.session.username = user.user_name;
 
         res.json({
             message: `Welcome back, ${user.first_name}!`,
@@ -221,20 +221,20 @@ app.get('/spelling', (req, res) => {
     res.render('spelling', { title: 'spelling' });
 });
 
-app.post('/spelling', async (req, res) => {
+app.post('/spelling', requireLogin, async (req, res) => {
     try {
-        const { user_id, score } = req.body;
+        const { score } = req.body;
 
-        if (!user_id || score === undefined) {
+        if (score === undefined) {
             return res
                 .status(400)
-                .json({ error: 'user_id and score are required' });
+                .json({ error: 'Score are required' });
         }
 
         // Insert score
         const [result] = await db.query(
             'INSERT INTO game_score (user_id, score) VALUES (?, ?)',
-            [user_id, score]
+            [req.session.user_Id, score]
         );
 
         res.status(201).json({
@@ -254,7 +254,7 @@ app.get('/leaderboard', async (req, res) => {
       FROM game_score g
       JOIN users u ON g.user_id = u.id
       ORDER BY g.score DESC
-      LIMIT 50
+      LIMIT 20
     `);
         // split into groups of 25 for display
         const chunkSize = 25;
