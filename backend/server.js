@@ -229,13 +229,19 @@ app.post('/spelling', requireLogin, async (req, res) => {
         if (score === undefined) {
             return res
                 .status(400)
-                .json({ error: 'Score are required' });
+                .json({ error: 'Score is required' });
+        }
+
+
+        const userId = req.session.userId;
+        if (!userId) {
+            return res.status(401).json({ error: 'User not logged in' });
         }
 
         // Insert score
         const [result] = await db.query(
             'INSERT INTO game_score (user_id, score) VALUES (?, ?)',
-            [req.session.user_Id, score]
+            [userId, score]
         );
 
         res.status(201).json({
