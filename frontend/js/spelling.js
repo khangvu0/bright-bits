@@ -128,6 +128,8 @@ submitBtn.addEventListener('click', () => {
             submitBtn.disabled = true;
             wordInput.disabled = true;
             restartBtn.classList.remove('hidden');
+
+            submitScore(score);
         }
     }
     feedbackEl.classList.remove('hidden');
