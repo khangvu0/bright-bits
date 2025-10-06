@@ -82,17 +82,23 @@
 /*-------------------- Media Queries --------------------*/
 /* For tablet */
 @media screen and (min-width: 768px) {
-    .leaderboard-container {
-        flex-direction: row;
-        gap: 2.25rem;
-        justify-content: center;
+    .player-group {
+        padding: 0 7vw;
     }
 
-    .player-group .header-row {
-        display: grid;
+    .header-rank,
+    .header-name,
+    .header-score,
+    .player-rank,
+    .player-name,
+    .player-score {
+        font-size: 1.2rem;
     }
 }
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
+    .player-group {
+        padding: 0 5vw;
+    }
 }
