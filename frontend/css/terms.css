@@ -1,0 +1,91 @@
+/*-------------------- Terms Page Layout --------------------*/
+.main-content {
+	margin-top: 0; /* Removes extra gap under sticky header */
+	background-color: var(--body-color);
+	display: flex;
+	justify-content: center;
+	padding: 2rem 1rem 4rem 1rem;
+}
+
+/* Container matches the rounded, card-like look of your About section */
+.container {
+	max-width: 900px;
+	background-color: var(--card-color);
+	padding: 2.5rem 3rem;
+	line-height: 1.6;
+	border-radius: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles to match About sections */
+.container h1 {
+	font-size: 2.25rem;
+	text-align: center;
+	margin-bottom: 2rem;
+	color: var(--dark-blue-color);
+}
+
+.container h2 {
+	font-size: 1.5rem;
+	margin: 1.75rem 0 0.75rem 0;
+	color: var(--dark-blue-color);
+	text-align: left;
+}
+
+.container p {
+	font-size: 1rem;
+	color: var(--text-color);
+	margin-bottom: 1rem;
+}
+
+/* Make the last section cleaner */
+.container a {
+	color: var(--light-blue-color);
+	text-decoration: underline;
+}
+
+.container a:hover {
+	color: var(--dark-blue-color);
+}
+
+/*-------------------- Responsive Styling --------------------*/
+@media screen and (min-width: 768px) {
+	.main-content {
+		padding: 3rem 2rem 5rem 2rem;
+	}
+
+	.container {
+		padding: 3rem 4rem;
+	}
+
+	.container h1 {
+		font-size: 2.5rem;
+	}
+
+	.container h2 {
+		font-size: 1.75rem;
+	}
+
+	.container p {
+		font-size: 1.05rem;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.main-content {
+		padding: 4rem 2rem 6rem 2rem;
+	}
+
+	.container {
+		max-width: 1000px;
+		padding: 3.5rem 4.5rem;
+	}
+
+	.container h1 {
+		font-size: 2.75rem;
+	}
+
+	.container h2 {
+		font-size: 1.9rem;
+	}
+}
