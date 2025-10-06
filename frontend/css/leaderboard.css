@@ -82,6 +82,10 @@
 /*-------------------- Media Queries --------------------*/
 /* For tablet */
 @media screen and (min-width: 768px) {
+    .main {
+        padding-bottom: 5rem;
+    }
+
     .player-group {
         padding: 0 7vw;
     }
