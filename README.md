@@ -130,20 +130,7 @@ cd bright-bits
 npm install
 ```
 
-### 3. Configure your `.env` file (see below)
-
-### 4. Start the development server
-
-```bash
-npm run dev
-```
-
-Server will run at:
-**[http://localhost:3000](http://localhost:3000)**
-
----
-
-## 🔑 Environment Variables
+### 3. Configure your `.env` file
 
 Create a `.env` file in the root directory:
 
@@ -157,11 +144,20 @@ SESSION_SECRET=your_session_secret
 DICTIONARY_API_KEY=your_merriam_webster_api_key
 ```
 
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Server will run at:
+**[http://localhost:3000](http://localhost:3000)**
+
 ---
 
 ## 🚀 Deployment (Railway)
 
-Bright Bits is hosted on **[Railway](https://railway.app)**.
+Bright Bits is hosted on **[Railway](https://railway.app)**. Live demo **[here](https://bright-bits-production.up.railway.app/)**
 
 To deploy your own instance:
 
@@ -187,13 +183,13 @@ To deploy your own instance:
 ## 🖼️ Screenshots
 
 **Homepage** – Welcomes users and introduces the project
-![Homepage preview](/frontend/images/preview-home.png)
+![Homepage preview](/frontend/images/preview-home.png)<br>
 **Spelling Game** – Interactive gameplay interface
-![Spelling page preview](/frontend/images/preview-spelling.png)
+![Spelling page preview](/frontend/images/preview-spelling.png)<br>
 **Leaderboard** – Displays top players and scores
-![leaderboard preview](/frontend/images/preview-leaderboard.png)
+![leaderboard preview](/frontend/images/preview-leaderboard.png)<br>
 **Register** – Create player account
-![leaderboard preview](/frontend/images/preview-register.png)
+![leaderboard preview](/frontend/images/preview-register.png)<br>
 **Login** – Login into player account
 ![leaderboard preview](/frontend/images/preview-login.png)
 
@@ -202,7 +198,6 @@ To deploy your own instance:
 ## 🔮 Future Improvements
 
 -   Add profile pages with user statistics
--   Implement teacher dashboards for class tracking
 -   Expand API integration for definitions, hints, and audio
 -   Add accessibility and multilingual support
 
@@ -210,14 +205,10 @@ To deploy your own instance:
 
 ## 👨‍💻 Authors
 
-**Khang Vu**
-GitHub: [@khangvu0](https://github.com/khangvu0)
-**Kaia Bryant**
-GitHub: [@KaiaBryant](https://github.com/KaiaBryant)
-**Michael Howey**
-GitHub: [@Mhowey19](https://github.com/Mhowey19)
-**Amy Gutierrez**
-GitHub: [@amyxgm2](https://github.com/amyxgm2)
+-   **Khang Vu** GitHub: [@khangvu0](https://github.com/khangvu0)
+-   **Kaia Bryant** GitHub: [@KaiaBryant](https://github.com/KaiaBryant)
+-   **Michael Howey** GitHub: [@Mhowey19](https://github.com/Mhowey19)
+-   **Amy Gutierrez** GitHub: [@amyxgm2](https://github.com/amyxgm2)
 
 ---
 
