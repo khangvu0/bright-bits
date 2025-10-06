@@ -265,8 +265,6 @@ app.get('/resources', async (req, res) => {
 	res.render('resources', { title: 'Resources' });
 	//try catch function for resources
 });
-//Use to grab audio info //pajama02 as the plug in value using the parsed json data
-// https://media.merriam-webster.com/audio/prons/en/us/mp3/p/pajama02.mp3
 
 // 5. Start server
 app.listen(PORT, () => {
