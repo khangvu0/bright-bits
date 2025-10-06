@@ -1,0 +1,68 @@
+{{!-- views/terms.handlebars --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta 
+        name="description" 
+        content="Terms and Conditions for Bright Bits, an educational platform addressing youth literacy rates." />
+    <title>Terms & Conditions | Bright Bits</title>
+
+    <link rel="icon" href="/images/2.svg">
+    <link rel="stylesheet" href="/css/shared.css">
+    <link rel="stylesheet" href="/css/terms.css">
+</head>
+
+<body>
+    {{>header}}
+    <main class="main-content">
+        <div class="container">
+            <h1>Terms & Conditions</h1>
+            <p><strong>Last updated:</strong> {{lastUpdated}}</p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using Bright Bits (the “Site” or “Service”), you agree to be bound by these Terms and our Privacy Policy. If you do not agree, please do not use the Service.</p>
+
+            <h2>2. Eligibility</h2>
+            <p>You must be at least 13 years old (or the minimum age in your jurisdiction) to use Bright Bits. By using the Service, you represent that you meet the eligibility requirements.</p>
+
+            <h2>3. User Accounts & Registration</h2>
+            <p>To access certain features (e.g., leaderboards or progress tracking), you must register an account. You agree to provide accurate, complete information and keep your password secure. You are responsible for all activity under your account.</p>
+
+            <h2>4. User Content & Behavior</h2>
+            <p>You are responsible for any content you submit (e.g., usernames, scores). You agree not to post unlawful, defamatory, or harmful material, or use the Service for illegal or malicious purposes.</p>
+
+            <h2>5. License to Use Service</h2>
+            <p>Bright Bits grants you a limited, non-exclusive, revocable license to access and use the Service for personal, noncommercial use. You may not copy, modify, or resell any part of the Service unless explicitly permitted.</p>
+
+            <h2>6. Intellectual Property</h2>
+            <p>All content (text, graphics, code, logos) is owned by Bright Bits or its licensors and is protected by copyright and trademark laws. You may not remove or alter any copyright notices.</p>
+
+            <h2>7. Third-Party APIs & Services</h2>
+            <p>Bright Bits may integrate third-party APIs or data sources. We are not responsible for their content, accuracy, or reliability. Your use of third-party services is subject to their own terms.</p>
+
+            <h2>8. Disclaimers & Limitation of Liability</h2>
+            <p>The Service is provided “as is,” without warranties of any kind. Bright Bits and its affiliates are not liable for indirect, incidental, or consequential damages arising from your use of the Service.</p>
+
+            <h2>9. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless Bright Bits, its team, and partners from any claims or liabilities arising from your use of the Service or breach of these Terms.</p>
+
+            <h2>10. Termination</h2>
+            <p>We may suspend or terminate access to the Service at any time for any reason. Upon termination, your right to use the Service will immediately cease.</p>
+
+            <h2>11. Changes to Terms</h2>
+            <p>We may update these Terms periodically. Continued use of the Service after changes means you accept the updated Terms.</p>
+
+            <h2>12. Governing Law</h2>
+            <p>These Terms are governed by the laws of {{jurisdiction}}. Any disputes will be resolved in the courts of {{jurisdiction}}.</p>
+
+            <h2>13. Contact Us</h2>
+            <p>If you have any questions about these Terms, please contact us at 
+            <a href="mailto:{{contactEmail}}">{{contactEmail}}</a>.</p>
+        </div>
+    </main>
+    {{>footer}}
+    <script src="/js/app.js"></script>
+</body>
+</html>
