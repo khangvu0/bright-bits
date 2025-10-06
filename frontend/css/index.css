@@ -136,6 +136,10 @@
     transform: scale(1.05);
 }
 
+.poster a {
+    width: 100%;
+}
+
 /*-------------------- Testimonials --------------------*/
 .testimonial {
     display: flex;
