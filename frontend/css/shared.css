@@ -210,9 +210,10 @@ a {
 }
 
 .footer-form .btn {
+    font-weight: 500;
     padding: 0.5rem 1.5rem;
-    background-color: var(--dark-blue-color);
-    color: white;
+    background-color: var(--spelling-yellow-1);
+    color: var(--text-color);
     border: none;
     border-radius: 0.4rem;
     cursor: pointer;
@@ -221,8 +222,9 @@ a {
 }
 
 .footer-form .btn:hover {
-    background-color: var(--light-blue-color);
+    background-color: var(--poster-yellow-color);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    transform: scale(1.008);
 }
 
 #phone-error {
@@ -346,6 +348,10 @@ a {
         gap: 2vw;
     }
 
+    .footer-form {
+        gap: 1.5rem;
+    }
+
     .footer-form_intro,
     .footer-form_input-container {
         width: 100%;
@@ -365,6 +371,10 @@ a {
 
     .footer-form .btn {
         margin-top: unset;
+    }
+
+    .app-store {
+        margin-bottom: 2.5rem;
     }
 }
 
