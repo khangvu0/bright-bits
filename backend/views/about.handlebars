@@ -1,3 +1,64 @@
-<h1>{{title}}</h1>
-<p>about</p>
-<button id='helloBtn'>Say Hello</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+            name="description"
+            content="Educational website addressing youth literacy rates" />
+    <title>Bright Bits About Us</title>
+    <link rel="icon" href="/images/2.svg">
+    <link rel="stylesheet" href="/css/shared.css">
+    <link rel="stylesheet" href="/css/about.css">
+    
+</head>
+<body>
+    {{>header}}
+    <main class="main">
+        <div class="hero-img-container">
+        <div class="hero-text">
+            <h1>About Us</h1>
+        </div>
+      </div>
+      <div class="about-us-container">
+        <h1> We are Bright Bits</h1>
+        <p> <img class="icon" src="/images/BooksIcon (1).svg" alt="Book Icon"> Bright Bits is dedicated to closing the literacy gap for children in grades three through five by providing an engaging platform that strengthens spelling, expands vocabulary, and builds lifelong learning skills.</p>
+        <p> <img class="icon" src="/images/HandshakeIcon (1).svg" alt="Handshake Icon"> We believe that literacy is the foundation for academic achievement, personal growth, and civic engagement. By empowering children with the tools to succeed in reading and writing, we are not only shaping brighter futures for them as individuals but also contributing to the advancement of society as a whole.</p>
+        <p> <img class="icon" src="/images/ReadingIcon (1).svg" alt="Reading Icon"> Through a structured yet engaging digital environment, Bright-Bits introduces new vocabulary in ways that are both accessible and meaningful. By investing in literacy at this critical stage of development, we aim to build lasting skills that foster confidence, curiosity, and lifelong learning.</p>
+      </div>
+      
+      <h2> Our Team </h2>
+      <div class="team-container">
+        <div class="team-member-card">
+            <img src="/images/headshot2.jpeg" alt="Khang Vu">
+            <h3>Khang Vu</h3>
+            <p class="team-title">Coding Apprentice</p>
+            <p class="email">kvu17@r2happrentice.org</p>
+        </div>
+
+        <div class="team-member-card">
+            <img src="/images/IMG_0534.png" alt="Kaia Bryant">
+            <h3>Kaia Bryant</h3>
+            <p class="team-title">Coding Apprentice</p>
+            <p class="email">kbryant17@r2happrentice.org</p>
+        </div>
+
+        <div class="team-member-card">
+            <img src="/images/Headshop.jpeg" alt="Michael Howey">
+            <h3>Michael Howey</h3>
+            <p class="team-title">Coding Apprentice</p>
+            <p class="email">mhowey17@r2happrentice.org</p>
+        </div>
+
+        <div class="team-member-card">
+            <img src="/images/2J5A3185.jpg" alt="Amy Gutierrez">
+            <h3>Amy Gutierrez</h3>
+            <p class="team-title">Coding Apprentice</p>
+            <p class="email">agmanzanarez17@r2happrentice.org</p>
+        </div>
+      </div>
+    </main>
+    {{>footer}}
+    <script src="/js/app.js"></script>
+</body>
+</html>

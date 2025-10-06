@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Educational website addressing youth literacy rates" />
+    <title>Bright Bits Spelling Game</title>
+    <link rel="icon" href="/images/2.svg">
+    <link rel="stylesheet" href="/css/shared.css">
+    <link rel="stylesheet" href="/css/spelling.css">
+
+</head>
+
+<body>
+    {{>header}}
+    <main class="main">
+        <div class="container">
+            <!-- Appends user.session info -->
+            <div id="user-info" class="user-info-box">
+                {{#if username}}
+                <p class="welcome-text">Welcome, <strong>{{username}}</strong> 👋</p>
+                {{else}}
+                <p class="welcome-text">Welcome, guest! <a href="/login">Login</a> to save your score.</p>
+                {{/if}}
+            </div>
+            <h1>Spelling Bee Game</h1>
+            <div class="stats">
+                <div id="lives-box">Lives: <span id="lives">3</span></div>
+                <div id="score-box">Score: <span id="score">0</span></div>
+            </div>
+
+            <!-- Word prompt -->
+            <div class="game-box">
+                <div class="definition-container">
+                    <h2 class="definition-title">Definition:</h2>
+                    <p id="definition">Loading definition...</p>
+                </div>
+                <button id="speak-btn">🔊 Hear Pronunciation</button>
+                <input type="text" id="word-input" placeholder="Type your spelling..." />
+                <button id="submit-btn">Submit</button>
+            </div>
+
+            <!-- Feedback section -->
+            <div id="feedback" class="hidden"></div>
+
+            <!-- Correct answer + definitions -->
+            <div id="answer-box" class="answer-box hidden">
+                <h2 id="correct-word"></h2>
+                <div class="definition-container">
+                    <h2 class="definition-title">Definitions:</h2>
+                    <ul id="definitions-list"></ul>
+                </div>
+                <button id="continue-btn">Continue</button>
+            </div>
+
+            <button id="restart-btn" class="hidden">Restart Game</button>
+        </div>
+    </main>
+    {{>footer}}
+    <script src="/js/spelling.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

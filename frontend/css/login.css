@@ -1,0 +1,118 @@
+.login--form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    grid-auto-rows: minmax(2rem, auto);
+    grid-row-gap: 0.5rem;
+    border-radius: 5px;
+}
+
+.form--group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.25rem;
+}
+
+.login--form label {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.login--form label,
+.login--form input,
+.login--form select {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.login--form input[id*='terms'],
+.login--form input[id*='terms'] + label {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.login--form input:not([type='checkbox']),
+.login--form select {
+    border: 1px solid #ccc;
+    padding: 0.6rem 0.5rem;
+}
+
+.login--form input[type='checkbox'] {
+    width: 1rem;
+    height: 1rem;
+}
+
+.login--form__checkbox a {
+    color: blue;
+}
+
+.form-button {
+    grid-column: 1 / span 2;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--dark-blue-color);
+    color: white;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form-button:hover {
+    background-color: var(--light-blue-color);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.input-valid {
+    border: 1px solid #28a745;
+    background-color: #e9f9ee;
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
+}
+
+.input-invalid {
+    border: 1px solid #dc3545;
+    background-color: #fcebea;
+    box-shadow: 0 0 4px rgba(220, 53, 69, 0.3);
+}
+
+.login--error {
+    color: red;
+    padding: 0.25rem 0 0.5rem;
+}
+
+/*-------------------- Media Queries --------------------*/
+/* For tablet */
+@media (min-width: 768px) {
+    .login--form {
+        margin: auto auto;
+        width: 80vw;
+        grid-template-columns: 10rem auto;
+    }
+
+    .form--group {
+        margin-bottom: 0.5rem;
+    }
+
+    .login--form label,
+    .login--form input,
+    .login--form select {
+        font-size: 1.1rem;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+    .main {
+        margin-bottom: 2rem;
+    }
+
+    .login--form {
+        width: 60vw;
+    }
+
+    .login--form label,
+    .login--form input,
+    .login--form select {
+        font-size: 1.1rem;
+    }
+}

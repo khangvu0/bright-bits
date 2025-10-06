@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+            name="description"
+            content="Educational website addressing youth literacy rates" />
+    <title>Bright Bits</title>
+    <link rel="icon" href="/images/2.svg">
+    <link rel="stylesheet" href="/css/shared.css">
+    <link rel="stylesheet" href="/css/index.css">
+    
+</head>
+<body>
+    {{>header}}
+    <main class="hero">
+        <section class="hero-img-container">
+            <div class="hero-text">
+                <h1>Your Child's Path To Success Starts Here</h1>
+                <a href="/spelling"><button class="hero-button">Spelling Game</button></a>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="org-container">
+                <img class="dog-character" src="/images/dog-character.svg">
+                <h2 class="org-title">Bright-Bits</h2>
+                <p class="org-subtitle">We are dedicated to closing the literacy gap for children in grades three through five by providing an engaging platform that strengthens spelling, expands vocabulary, and builds lifelong learning skills.</p>
+            </div>
+
+            <div class="why-container">
+                <img class="tutu-character" src="/images/tutu-character.svg">
+                <h2 class="why-title">Why Literacy Matters</h2>
+                <p class="why-subtitle">40% of fourth graders and 1/3 of eighth graders are failing to meet the basic level of proficiency targets that are set by the National Assessment Governing Board according to The Harvard Gazette.</p>
+            </div>
+        </section>
+
+        <section class="poster">
+            <img src="/images/spelling-bee-poster.svg" alt="Spelling Bee Poster" class="poster-image">
+            <div class="poster-content">
+                <h2>How Does It Work?</h2>
+                <div class="step">
+                    <h3>Step 1</h3>
+                    <p>Register and Login into your account.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 2</h3>
+                    <p>Play the Spelling Game.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 3</h3>
+                    <p>Make it to the top of the Leaderboard!</p>
+                </div>
+                <a href="/leaderboard"><button class="check-leaderboard-button">Check the Leaderboard</button></a>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="testimonial-card">
+                <img class="testimonial-photo" src="/images/tim-headshot.jpeg">
+                <h3>"This program has made spelling practice so much easier at home."</h3>
+                <p>- Tim</p>
+            </div>
+
+            <div class="testimonial-card">
+                <img class="testimonial-photo" src="/images/latori-headshot.jpeg">
+                <h3>"My children can’t stop playing — they think it’s a game, but they’re learning so much."</h3>
+                <p>- Latori</p>
+            </div>
+
+            <div class="testimonial-card">
+                <img class="testimonial-photo" src="/images/jaimer-headshot.png">
+                <h3>"As a parent, I love that learning feels more like playtime."</h3>
+                <p>- Jaimer</p>
+            </div>
+
+            <div class="testimonial-card">
+                <img class="testimonial-photo" src="/images/aerialle-headshot.jpeg">
+                <h3>"It feels great knowing my kids are having fun and improving their spelling."</h3>
+                <p>- Aerialle</p>
+            </div>
+        </section>
+    </main>
+    {{>footer}}
+    <script src="/js/app.js"></script>
+</body>
+</html>
