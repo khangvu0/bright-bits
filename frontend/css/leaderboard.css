@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .main {
-	background-image: url(/images/leaderboard-background-1.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	padding-bottom: 3rem;
+    background-image: url(/images/leaderboard-background-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 3rem;
 }
 
 .header-rank,
@@ -16,93 +16,98 @@
 .player-rank,
 .player-name,
 .player-score {
-	font-family: 'Press Start 2P', system-ui, var(--font-text);
-	font-size: 0.9rem;
+    font-family: 'Press Start 2P', system-ui, var(--font-text);
+    font-size: 0.9rem;
 }
 
 .leaderboard-title {
-	font-family: 'Press Start 2P', system-ui, var(--font-title);
-	text-align: center;
-	margin: 1rem 0;
+    font-family: 'Press Start 2P', system-ui, var(--font-title);
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.5rem;
 }
 
 .leaderboard-container {
-	display: flex;
-	flex-direction: column;
-	background-color: rgba(255, 255, 255, 0.85);
-	border-radius: 12px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-	padding: 1rem 0;
-	width: 90%;
-	max-width: 900px;
-	margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1rem 0;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .player-group .header-row {
-	display: none;
+    display: none;
 }
 
 .player-group:first-child .header-row {
-	display: grid;
+    display: grid;
 }
 
 .header-row,
 .player-row {
-	display: grid;
-	grid-template-columns: 60px 1fr 60px;
-	gap: 1rem;
-	padding: 0.75rem 1.5rem;
-	align-items: center;
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    align-items: center;
 }
 
 .player-row {
-	border-top: 1px solid #ddd;
+    border-top: 1px solid #ddd;
 }
 
 .header-rank,
 .player-rank {
-	font-weight: bold;
-	text-align: left;
+    font-weight: bold;
+    text-align: left;
 }
 
 .header-name,
 .player-name {
-	text-align: center;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header-score,
 .player-score {
-	text-align: right;
-	font-weight: bold;
+    text-align: right;
+    font-weight: bold;
 }
 
 /*-------------------- Media Queries --------------------*/
 /* For tablet */
 @media screen and (min-width: 768px) {
-	.main {
-		padding-bottom: 5rem;
-	}
+    .main {
+        padding-bottom: 5rem;
+    }
 
-	.player-group {
-		padding: 0 7vw;
-	}
+    .leaderboard-title {
+        font-size: 2rem;
+    }
 
-	.header-rank,
-	.header-name,
-	.header-score,
-	.player-rank,
-	.player-name,
-	.player-score {
-		font-size: 1.2rem;
-	}
+    .player-group {
+        padding: 0 7vw;
+    }
+
+    .header-rank,
+    .header-name,
+    .header-score,
+    .player-rank,
+    .player-name,
+    .player-score {
+        font-size: 1.2rem;
+    }
 }
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
-	.player-group {
-		padding: 0 5vw;
-	}
+    .player-group {
+        padding: 0 5vw;
+    }
 }
